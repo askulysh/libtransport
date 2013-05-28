@@ -422,6 +422,7 @@ void Skype::handleSkypeMessage(std::string &message) {
 			std::vector<std::string> data;
 			boost::split(data, users, boost::is_any_of(","));
 			BOOST_FOREACH(std::string u, data) {
+				boost::algorithm::trim(u);
 				GET_PROPERTY(alias, "USER", u, "FULLNAME");
 				GET_PROPERTY(mood_text, "USER", u, "MOOD_TEXT");
 				GET_PROPERTY(st, "USER", u, "ONLINESTATUS");
